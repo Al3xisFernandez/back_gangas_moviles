@@ -2,18 +2,23 @@ const { Router } = require("express");
 const router = Router();
 
 const {
-    renderProductsForm,
-    createNewProducts,
-    renderProducts,
-    renderEditProduct,
-    updateProduct,
-    deleteProduct,
+    renderSignUpForm,
+    renderSigninForm,
+    signup,
+    signin,
+    logout,
 } = require("../controllers/user.controllers");
 
-router.get("/products/add", renderProductsForm);
-router.post("/products/add", createNewProducts);
-router.get("/products", renderProducts);
-router.get("/products/edit/:id", renderEditProduct);
-router.put("/products/edit/:id", updateProduct);
-router.delete("/products/delete/:id", deleteProduct);
+router.get("/users/signup", renderSignUpForm);
+
+router.post("/users/signup", signup);
+
+router.get("/users/signin", renderSigninForm);
+
+router.post("/users/signin", signin);
+
+router.get("/users/logout", logout);
+
+
+
 module.exports = router;
